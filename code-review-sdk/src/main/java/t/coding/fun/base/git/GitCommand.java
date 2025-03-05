@@ -78,12 +78,12 @@ public class GitCommand {
     */
     public String commitAndPush(String recommend) throws Exception {
         logger.info("记录评审结果 -> {}", recommend);
+        logger.info("clone git repo -> {}", githubReviewLogUri);
         Git git = Git.cloneRepository()
-                .setURI(githubReviewLogUri + ".git")
+                .setURI(githubReviewLogUri)
                 .setDirectory(new File("repo"))
                 .setCredentialsProvider(new UsernamePasswordCredentialsProvider(githubToken, ""))
                 .call();
-        logger.info("clone git repo -> {}", githubReviewLogUri);
         // 创建分支
         String dateFolderName = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         File dateFolder = new File("repo/" + dateFolderName);
