@@ -77,12 +77,13 @@ public class GitCommand {
     * @Date: 3/5/2025
     */
     public String commitAndPush(String recommend) throws Exception {
+        logger.info("记录评审结果 -> {}", recommend);
         Git git = Git.cloneRepository()
                 .setURI(githubReviewLogUri + ".git")
                 .setDirectory(new File("repo"))
                 .setCredentialsProvider(new UsernamePasswordCredentialsProvider(githubToken, ""))
                 .call();
-
+        logger.info("clone git repo -> {}", githubReviewLogUri);
         // 创建分支
         String dateFolderName = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         File dateFolder = new File("repo/" + dateFolderName);
