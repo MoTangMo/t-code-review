@@ -1,18 +1,26 @@
 package t.coding.fun.core;
 
+import t.coding.fun.base.email.BaseEmailService;
+import t.coding.fun.base.email.EmailService;
 import t.coding.fun.base.git.GitCommand;
 import t.coding.fun.base.openai.IOpenAi;
 import t.coding.fun.model.openai.ChatCompletionRequestDTO;
 import t.coding.fun.model.openai.ChatCompletionSyncResponseDTO;
 import t.coding.fun.model.openai.enums.Model;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class GLMCodeReviewHandler extends BaseCodeReviewHandler{
 
-    public GLMCodeReviewHandler(GitCommand gitCommand, IOpenAi openAI) {
+    EmailService emailService;
+
+
+
+    public GLMCodeReviewHandler(GitCommand gitCommand, IOpenAi openAI, EmailService emailService) {
         super(gitCommand, openAI);
+        this.emailService = emailService;
     }
 
     @Override
@@ -74,7 +82,8 @@ public class GLMCodeReviewHandler extends BaseCodeReviewHandler{
     }
 
     @Override
-    String pushResultUrl(String reviewUrl) {
+    String pushResultUrl(String reviewUrl) throws Exception {
+        emailService.sendEmail(reviewUrl);
         return "";
     }
 }

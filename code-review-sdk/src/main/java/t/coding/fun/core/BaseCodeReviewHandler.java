@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import t.coding.fun.base.git.GitCommand;
 import t.coding.fun.base.openai.IOpenAi;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 
 
@@ -66,7 +67,7 @@ public abstract class BaseCodeReviewHandler implements CodeReviewHandler{
     * @Author: tangzhaofeng
     * @Date: 3/5/2025
     */
-    abstract String pushResultUrl(String reviewUrl);
+    abstract String pushResultUrl(String reviewUrl) throws Exception;
 
 
     /**
