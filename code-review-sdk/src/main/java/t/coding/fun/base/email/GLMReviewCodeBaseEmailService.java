@@ -25,7 +25,7 @@ public class GLMReviewCodeBaseEmailService extends BaseEmailService {
     private final String subject = "😊 T Code Review -> Your code review results";
 
 
-    private final String toAddress = EnvUtils.getEnv("TO_ADDRESS");
+    private final String toAddress = EnvUtils.getEnv("EMAIL_TOADDRESS");
 
 
     public GLMReviewCodeBaseEmailService(String host, String port, String username, String password, String toAddress) {
