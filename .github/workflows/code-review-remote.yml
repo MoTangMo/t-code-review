@@ -28,7 +28,7 @@ jobs:
         run: mkdir -p ./libs
       # 下载 Jar 包
       - name: Download code-review-sdk-1.0.jar JAR
-        run: wget -O ./libs/code-review-sdk-1.0.jar  https://github.com/MoTangMo/t-code-review/releases/download/v1/code-review-sdk-1.0.jar
+        run: wget -O ./libs/code-review-sdk-1.0.jar    https://github.com/MoTangMo/t-code-review/releases/download/v1/code-review-sdk-1.0.jar
 
       - name: Get repository name
         id: repo-name
