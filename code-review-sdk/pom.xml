@@ -91,11 +91,10 @@
             <version>1.6.2</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/javax.activation/javax.activation-api -->
         <dependency>
             <groupId>javax.activation</groupId>
-            <artifactId>javax.activation-api</artifactId>
-            <version>1.2.0</version>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
         </dependency>
 
 
@@ -159,7 +158,7 @@
                             <include>com.fasterxml.jackson.core:jackson-annotations:</include>
                             <include>org.eclipse.jgit:org.eclipse.jgit:</include>
                             <include>com.sun.mail:javax.mail:</include>
-                            <include>javax.activation:javax.activation-api:</include>
+                            <include>javax.activation:activation:</include>
                         </includes>
                     </artifactSet>
                 </configuration>

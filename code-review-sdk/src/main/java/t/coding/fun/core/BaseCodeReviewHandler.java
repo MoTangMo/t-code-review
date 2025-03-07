@@ -67,7 +67,7 @@ public abstract class BaseCodeReviewHandler implements CodeReviewHandler{
     * @Author: tangzhaofeng
     * @Date: 3/5/2025
     */
-    abstract String pushResultUrl(String reviewUrl) throws Exception;
+    abstract void pushResultUrl(String reviewUrl) throws Exception;
 
 
     /**

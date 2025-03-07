@@ -11,12 +11,13 @@ import t.coding.fun.model.openai.enums.Model;
 import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class GLMCodeReviewHandler extends BaseCodeReviewHandler{
 
     EmailService emailService;
 
-
+    Logger logger = Logger.getLogger(GLMCodeReviewHandler.class.getName());
 
     public GLMCodeReviewHandler(GitCommand gitCommand, IOpenAi openAI, EmailService emailService) {
         super(gitCommand, openAI);
@@ -82,8 +83,8 @@ public class GLMCodeReviewHandler extends BaseCodeReviewHandler{
     }
 
     @Override
-    String pushResultUrl(String reviewUrl) throws Exception {
+    void pushResultUrl(String reviewUrl) throws Exception {
         emailService.sendEmail(reviewUrl);
-        return "";
+        logger.info("评审结果已发送至邮箱 -> -> -> ");
     }
 }
