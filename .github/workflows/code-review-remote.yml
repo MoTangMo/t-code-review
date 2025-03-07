@@ -1,12 +1,12 @@
-name: T Ai Code Review Maven Build
+name: T Ai Code Review Jar Build
 
 on:
   push:
     branches:
-      - master-close
+      - '*'
   pull_request:
     branches:
-      - master-close
+      - '*'
 
 jobs:
   build:
@@ -17,18 +17,18 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 2
-
+      #配置JDK 17 环境
       - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
           java-version: '17'
 
-      - name: Build with Maven
-        run: mvn clean install
-
-      - name: Copy openai-code-review-sdk JAR
-        run: mvn dependency:copy -Dartifact=t.coding.fun:code-review-sdk:1.0 -DoutputDirectory=./libs
+      - name: Create libs directory
+        run: mkdir -p ./libs
+      # 下载 Jar 包
+      - name: Download code-review-sdk-1.0.jar JAR
+        run: wget -O ./libs/code-review-sdk-1.0.jar  https://github.com/MoTangMo/t-code-review/releases/download/v1/code-review-sdk-1.0.jar
 
       - name: Get repository name
         id: repo-name
